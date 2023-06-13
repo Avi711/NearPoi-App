@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Toggle from './Toggle';
 
 function SearchInput({ changeCenter }) {
 
@@ -6,6 +7,8 @@ function SearchInput({ changeCenter }) {
     const [inputlng, setInputlng] = useState();
     const [inputrad, setInputrad] = useState();
     const [isLoading, setIsLoading] = useState(false);
+    const [mode, setMode] = React.useState("Pois");
+
 
 
 
@@ -27,8 +30,8 @@ function SearchInput({ changeCenter }) {
                     <input type="text" required="required" value={inputrad} onChange={(e) => setInputrad(e.target.value)}></input>
                     <span>Radius</span>
                 </div>
-
-                { !isLoading ? <button className="enter" onClick={() => changeCenter({ lat: parseFloat(inputlat), lng: parseFloat(inputlng) }, inputlat, inputlng, inputrad, setIsLoading)}>Enter</button> : <div className="spinner"></div>}
+                <Toggle mode={mode} setMode={setMode}></Toggle>
+                { !isLoading ? <button className="enter" onClick={() => changeCenter({ lat: parseFloat(inputlat), lng: parseFloat(inputlng) }, inputlat, inputlng, inputrad, setIsLoading, mode)}>Enter</button> : <div className="spinner"></div>}
 
 
             </div>

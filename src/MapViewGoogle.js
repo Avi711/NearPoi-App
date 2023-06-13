@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, MarkerF, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios';
 import Data from './data.json'
-import SearchInput from './SearchInput';
 import Card from './Card';
+import SearchInput from './SearchInput';
 
 const MapViewGoogle = () => {
     const [pois, setPois] = useState([]);
@@ -15,7 +15,7 @@ const MapViewGoogle = () => {
         width: "100%"
     };
 
-    const changeCenter = (new_center, lat, lng, rad, setIsLoading) => {
+    const changeCenter = (new_center, lat, lng, rad, setIsLoading, mode) => {
         setCenter(new_center)
         const params = {
             lat: lat,
@@ -23,9 +23,28 @@ const MapViewGoogle = () => {
             rad: rad
         }
         setIsLoading(true)
+        if (mode === "Pois") {
         axios.get('http://localhost:3500/pois', { params })
             .then(function (response) {
                 let pois = response.data.filter(poi => poi._pic.length > 0)
+                setPois(pois);
+                setIsLoading(false)
+                console.log(pois)
+            })
+            .catch(function (error) {
+                console.log(error);
+                setIsLoading(false)
+                setPois([]);
+            });
+        } else {
+            const currentDate = new Date();
+            const nextWeekDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000);
+            params.end = nextWeekDate
+            axios.get('http://localhost:3500/events', { params })
+            .then(function (response) {
+                let pois = response.data.map(e => {
+                    return {_poiName: e.name, _shortDesc: e.description, _pic: [e.images], _latitude: e.lat, _longitude: e.lon}
+                })
                 setPois(pois);
                 setIsLoading(false)
             })
@@ -34,6 +53,7 @@ const MapViewGoogle = () => {
                 setIsLoading(false)
                 setPois([]);
             });
+        }
 
     }
 
