@@ -3,24 +3,41 @@ import { GoogleMap, LoadScript, MarkerF, InfoWindow } from '@react-google-maps/a
 import axios from 'axios';
 import Data from './data.json'
 import SearchInput from './SearchInput';
+import Card from './Card';
 
 const MapViewGoogle = () => {
     const [pois, setPois] = useState([]);
     const [selectedPoi, setSelectedPoi] = useState(null);
-    const [center, setCenter] = useState({lat: 51.5072178, lng: -0.1275862})
+    const [center, setCenter] = useState({ lat: 40.7127753, lng: -74 })
 
     const mapStyles = {
         height: "100vh",
         width: "100%"
     };
 
-    const changeCenter = (new_center) => {
+    const changeCenter = (new_center, lat, lng, rad, setIsLoading) => {
         setCenter(new_center)
+        const params = {
+            lat: lat,
+            lon: lng,
+            rad: rad
+        }
+        setIsLoading(true)
+        axios.get('http://localhost:3500/pois', { params })
+            .then(function (response) {
+                let pois = response.data.filter(poi => poi._pic.length > 0)
+                setPois(pois);
+                setIsLoading(false)
+            })
+            .catch(function (error) {
+                console.log(error);
+                setIsLoading(false)
+                setPois([]);
+            });
+
     }
 
-    useEffect(() => {
-        setPois(Data)
-    }, []);
+
 
     return (
         <>
@@ -51,10 +68,13 @@ const MapViewGoogle = () => {
                                         setSelectedPoi(null);
                                     }}
                                 >
-                                    <div>
+                                    {/* <div>
                                         <h2>{selectedPoi._poiName}</h2>
                                         <p>{selectedPoi._shortDesc}</p>
                                         {selectedPoi._pic && selectedPoi._pic[0] && <img style={{ maxWidth: '100%', maxHeight: '200px' }} src={selectedPoi._pic[0]} alt={selectedPoi._poiName} />}
+                                    </div> */}
+                                    <div>
+                                        <Card title={selectedPoi._poiName} info={selectedPoi._shortDesc} image={selectedPoi._pic[0]} />
                                     </div>
                                 </InfoWindow>
                             )
