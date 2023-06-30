@@ -13,6 +13,8 @@ This way, you won't miss any experience in your travel!
 </tr>
 </table>
 
+### This app connects to NearPoi system the can be found here: https://github.com/Avi711/NearPoi
+
 ### `npm install`
 ### `npm start`
 
@@ -30,12 +32,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 - [Node.js v18.13.0 or above](https://nodejs.org/en/download/)
 * For Node.js: make sure you have all the neccessary libraries installed correctly, with npm install.
-
-- [Python 3.10.11](python.org/downloads/release/python-31011/)
-* For Python: make sure you have spacy installed correctly (with lg/sm model).
-
-
-## Demo
-[Auto Trip Guide - Demo](https://youtu.be/i5quL6zx8kY)
-
-
