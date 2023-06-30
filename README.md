@@ -30,6 +30,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 <img width="700" alt="Screen Shot 2022-06-13 at 6 41 40 PM" src="https://github.com/Avi711/NearPoi-App/assets/92336875/3fede319-a2b7-48ba-b671-4ed205fc9345">
 <img width="700" alt="Screen Shot 2022-06-13 at 6 41 40 PM" src="https://github.com/Avi711/NearPoi-App/assets/92336875/0b72b405-6bc5-4309-92e3-b36d34131bd1">
 
+
+
 ### System Requirements
 
 :bulb: Before you begin, make sure you have all the below installed:
