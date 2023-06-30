@@ -26,12 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 <img width="800" alt="Screen Shot 2022-06-13 at 6 41 40 PM" src="https://github.com/Avi711/NearPoi/assets/92336875/b7d15578-8af5-437b-b743-aec5107b397e">
 
 ## Images
-<img width="600" alt="Screen Shot 2022-06-13 at 6 41 40 PM" src="https://github.com/Avi711/NearPoi-App/assets/92336875/72c9df29-f29e-498e-9803-e50ac5f90254">
 <img width="600" src="https://github.com/Avi711/NearPoi-App/assets/92336875/b2bbe3d7-c601-4bf0-bb4b-039a934eaf16">
 <img width="600" src="https://github.com/Avi711/NearPoi-App/assets/92336875/7b518f86-37fe-443f-bbe6-f55ef7a597d9">
 
-![image](https://github.com/Avi711/NearPoi-App/assets/92336875/b2bbe3d7-c601-4bf0-bb4b-039a934eaf16)
-![image](https://github.com/Avi711/NearPoi-App/assets/92336875/7b518f86-37fe-443f-bbe6-f55ef7a597d9)
 
 
 ### System Requirements
