@@ -13,11 +13,12 @@ This way, you won't miss any experience in your travel!
 </tr>
 </table>
 
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
 
 ## Architecture
 <img width="1000" alt="Screen Shot 2022-06-13 at 6 41 40 PM" src="https://github.com/Avi711/NearPoi/assets/92336875/b7d15578-8af5-437b-b743-aec5107b397e">
